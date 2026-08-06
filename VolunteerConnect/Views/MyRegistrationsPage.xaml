@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VolunteerConnect.Views.MyRegistrationsPage"
+             Title="My Registrations">
+    <VerticalStackLayout Padding="15" Spacing="10">
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Saved Expressions of Interest" FontSize="20" FontAttributes="Bold" Grid.Column="0" VerticalOptions="Center" />
+            <Label x:Name="CountLabel" Text="Total: 0" FontSize="14" FontAttributes="Bold" TextColor="Gray" Grid.Column="1" VerticalOptions="Center" />
+        </Grid>
+
+        <CollectionView x:Name="RegistrationsCollectionView" SelectionMode="Single" SelectionChanged="OnRegistrationSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,5" Padding="12" StrokeThickness="1" Stroke="#512BD4">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0" Spacing="3">
+                                <Label Text="{Binding OpportunityTitle}" FontSize="16" FontAttributes="Bold" TextColor="#512BD4" />
+                                <Label Text="{Binding PreferredName, StringFormat='Applicant: {0}'}" FontSize="13" />
+                                <Label Text="{Binding Availability, StringFormat='Availability: {0}'}" FontSize="13" TextColor="Gray" />
+                            </VerticalStackLayout>
+                            <Label Text="✏️ Edit / Delete" FontSize="12" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Grid.Column="1" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

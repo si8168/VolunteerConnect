@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VolunteerConnect.Views.HomePage"
+             Title="Home">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" MaximumWidthRequest="600" HorizontalOptions="Center">
+
+            <!-- App Title & Mission -->
+            <Label Text="VolunteerConnect 🤝" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#512BD4" />
+            <Label Text="Connecting passion with local community purpose. Discover meaningful opportunities right in your neighborhood."
+                   FontSize="15" HorizontalTextAlignment="Center" TextColor="Gray" />
+
+            <!-- Featured Opportunity Card -->
+            <Border Padding="16" StrokeThickness="1" Stroke="#E0E0E0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🌟 Featured Opportunity" FontSize="14" FontAttributes="Bold" TextColor="#512BD4" />
+                    <Label x:Name="FeaturedTitleLabel" Text="Community Garden Helper" FontSize="20" FontAttributes="Bold" />
+                    <Label x:Name="FeaturedDescLabel" Text="Assist with weeding, planting seasonal vegetables, and path maintenance." FontSize="14" TextColor="#444444" />
+
+                    <Grid ColumnDefinitions="*,Auto" Margin="0,5,0,0">
+                        <Label x:Name="FeaturedLocationLabel" Text="📍 Auckland Domain" FontSize="13" TextColor="Gray" VerticalOptions="Center" />
+                        <Button Grid.Column="1" Text="View Details" Clicked="OnViewFeaturedClicked" CornerRadius="8" HeightRequest="38" Padding="12,0" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Quick Stats & Action -->
+            <Border Padding="16" BackgroundColor="#F0EDFD" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Available Opportunities" FontSize="13" TextColor="Gray" />
+                        <Label x:Name="OpportunityCountLabel" Text="5 Local Opportunities" FontSize="18" FontAttributes="Bold" TextColor="#512BD4" />
+                    </VerticalStackLayout>
+                    <Button Grid.Column="1" Text="Browse All" Clicked="OnBrowseClicked" CornerRadius="8" BackgroundColor="#512BD4" />
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

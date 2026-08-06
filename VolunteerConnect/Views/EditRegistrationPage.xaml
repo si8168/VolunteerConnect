@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VolunteerConnect.Views.EditRegistrationPage"
+             Title="Edit Registration">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12" MaximumWidthRequest="600" HorizontalOptions="Center">
+            <Label x:Name="TitleLabel" FontSize="20" FontAttributes="Bold" TextColor="#512BD4" HorizontalOptions="Center" />
+
+            <Label Text="Preferred Name / Alias:" FontAttributes="Bold" />
+            <Entry x:Name="NameEntry" />
+
+            <Label Text="Email or Phone Number:" FontAttributes="Bold" />
+            <Entry x:Name="ContactEntry" />
+
+            <Label Text="Availability:" FontAttributes="Bold" />
+            <Entry x:Name="AvailabilityEntry" />
+
+            <Label Text="Optional Notes:" FontAttributes="Bold" />
+            <Editor x:Name="NotesEditor" HeightRequest="80" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,15,0,0">
+                <Button Grid.Column="0" Text="Update Details" Clicked="OnUpdateClicked" BackgroundColor="#512BD4" HeightRequest="45" />
+                <Button Grid.Column="1" Text="Cancel Registration" Clicked="OnDeleteClicked" BackgroundColor="#D32F2F" HeightRequest="45" />
+            </Grid>
+
+            <Label x:Name="MessageLabel" HorizontalOptions="Center" FontAttributes="Bold" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

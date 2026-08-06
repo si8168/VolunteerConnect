@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VolunteerConnect.Views.OpportunitiesPage"
+             Title="Volunteer Opportunities">
+
+    <VerticalStackLayout Padding="15" Spacing="10">
+
+        <SearchBar x:Name="OpportunitySearchBar"
+                   Placeholder="Search by title or location..."
+                   TextChanged="OnSearchOrFilterChanged" />
+
+        <Picker x:Name="CategoryPicker"
+                Title="All Categories"
+                SelectedIndexChanged="OnSearchOrFilterChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>All Categories</x:String>
+                    <x:String>Environment</x:String>
+                    <x:String>Community Support</x:String>
+                    <x:String>Education</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <CollectionView x:Name="OpportunitiesCollectionView"
+                        SelectionMode="Single"
+                        SelectionChanged="OnOpportunitySelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,5" Padding="12" StrokeThickness="1" Stroke="#E0E0E0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                            <Image Source="{Binding ImageName}" HeightRequest="50" WidthRequest="50" Grid.Column="0" VerticalOptions="Center" />
+
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding Category}" FontSize="12" TextColor="#512BD4" FontAttributes="Bold" />
+                                <Label Text="{Binding Location, StringFormat='📍 {0}'}" FontSize="13" TextColor="Gray" />
+                            </VerticalStackLayout>
+
+                            <Label Text="{Binding AvailablePlaces, StringFormat='{0} places'}"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="Green"
+                                   VerticalOptions="Center"
+                                   Grid.Column="2" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -15,7 +15,7 @@ namespace VolunteerConnect.Services
         {
             if (string.IsNullOrWhiteSpace(phone)) return false;
             string pattern = @"^\+?[0-9\s\-\(\)]{7,15}$";
-            return Regex.IsMatch(phone.Trim());
+            return Regex.IsMatch(phone.Trim(), pattern);
         }
 
         public static bool IsValidContact(string contact)

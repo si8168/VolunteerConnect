@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VolunteerConnect.Views.RegistrationPage"
+             Title="Register Interest">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12" MaximumWidthRequest="600" HorizontalOptions="Center">
+            <Label x:Name="OpportunityTitleLabel" FontSize="20" FontAttributes="Bold" TextColor="#512BD4" HorizontalOptions="Center" />
+
+            <Label Text="Preferred Name / Alias:" FontAttributes="Bold" />
+            <Entry x:Name="NameEntry" Placeholder="e.g. Alex Morgan" />
+
+            <Label Text="Email or Phone Number:" FontAttributes="Bold" />
+            <Entry x:Name="ContactEntry" Placeholder="e.g. alex.m@test.nz or 0211234567" />
+
+            <Label Text="Availability:" FontAttributes="Bold" />
+            <Entry x:Name="AvailabilityEntry" Placeholder="e.g. Weekends, Morning shift" />
+
+            <Label Text="Optional Notes:" FontAttributes="Bold" />
+            <Editor x:Name="NotesEditor" Placeholder="Any questions or special requests..." HeightRequest="80" />
+
+            <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                <CheckBox x:Name="ConsentCheckBox" />
+                <Label Text="I consent to storing my contact details locally for registration purpose." VerticalOptions="Center" FontSize="12" LineBreakMode="WordWrap" MaximumWidthRequest="300" />
+            </HorizontalStackLayout>
+
+            <Button Text="Submit Registration" Clicked="OnSubmitClicked" Margin="0,15,0,0" HeightRequest="45" BackgroundColor="#512BD4" />
+            <Label x:Name="MessageLabel" HorizontalOptions="Center" FontAttributes="Bold" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

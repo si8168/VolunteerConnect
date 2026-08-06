@@ -3,12 +3,22 @@
     x:Class="VolunteerConnect.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:VolunteerConnect"
+    xmlns:views="clr-namespace:VolunteerConnect.Views"
     Title="VolunteerConnect">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+        <Tab Title="Opportunities">
+            <ShellContent ContentTemplate="{DataTemplate views:OpportunitiesPage}" />
+        </Tab>
+        <Tab Title="My Registrations">
+            <ShellContent ContentTemplate="{DataTemplate views:MyRegistrationsPage}" />
+        </Tab>
+        <Tab Title="Privacy">
+            <ShellContent ContentTemplate="{DataTemplate views:PrivacyPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>
